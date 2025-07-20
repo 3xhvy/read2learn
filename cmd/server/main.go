@@ -1,13 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/3xhvy/go-backend/internal/router"
+)
 
 func main() {
-	router := gin.Default()
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	router.Run() // listen and serve on 0.0.0.0:8080
+	router := router.NewServer()
+	router.Run(":8002") // listen and serve on 0.0.0.0:8080
 }
