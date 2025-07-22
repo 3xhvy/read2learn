@@ -1,9 +1,8 @@
 package controller
 
 import (
-	"net/http"
-
 	"github.com/3xhvy/go-backend/internal/service"
+	"github.com/3xhvy/go-backend/pkg/response"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,7 +17,6 @@ func NewUserController() *UserController {
 }
 
 func (uc *UserController) GetUserById(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "username is " + uc.userService.GetInfoUser(),
-	})
+	// response.SuccessResponse(c, 20001, []string{"hvy", "tuongby"})
+	response.ErrorResponse(c, 20003, "unkown error")
 }
